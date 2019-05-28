@@ -14,10 +14,9 @@ public class MainActivity extends AppCompatActivity {
     EditText num1;
     EditText num2;
 
-    TextView tvOperation;
+    TextView tvOperation, tvResult;
     Button btnReset;
 
-    int ttl =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         num1 = findViewById(R.id.etNum1);
         num2 = findViewById(R.id.etNum2);
         tvOperation = findViewById(R.id.tvOperation);
+        tvResult = findViewById(R.id.tvResult);
         btnReset = findViewById(R.id.btnReset);
 
 
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 num1.setText("");
                 num2.setText("");
                 tvOperation.setText("");
+                tvResult.setText("");
             }
         });
 
@@ -54,15 +55,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-       int a = Integer.parseInt(num1.getText().toString());
-        int b = Integer.parseInt(num1.getText().toString());
-        if (item.getItemId() == 0) {
-            ttl = a+b ;
-            tvOperation.setText(ttl+"");
+        int id = item.getItemId();
+        int a = Integer.parseInt(num1.getText().toString());
+        int b = Integer.parseInt(num2.getText().toString());
 
-        } else if (item.getItemId() == 1) {
-            ttl = a-b;
-            tvOperation.setText(ttl+"");
+        int ttl = 0;
+
+        if (id == 0) {
+            ttl = a + b;
+            tvResult.setText(ttl + "");
+        } else {
+            ttl = a - b;
+            tvResult.setText(ttl + "");
         }
         return super.onContextItemSelected(item);
     }
