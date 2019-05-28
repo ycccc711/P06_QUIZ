@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             tvOperation.setText(ttl);
 
         } else if (item.getItemId() == 1) {
-            ttl = a+b;
+            ttl = a-b;
             tvOperation.setText(ttl);
         }
         return super.onContextItemSelected(item);
