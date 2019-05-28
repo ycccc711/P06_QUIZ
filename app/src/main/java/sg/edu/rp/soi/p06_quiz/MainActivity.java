@@ -58,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
         int b = Integer.parseInt(num1.getText().toString());
         if (item.getItemId() == 0) {
             ttl = a+b ;
-            tvOperation.setText(ttl);
+            tvOperation.setText(ttl+"");
 
         } else if (item.getItemId() == 1) {
             ttl = a-b;
-            tvOperation.setText(ttl);
+            tvOperation.setText(ttl+"");
         }
         return super.onContextItemSelected(item);
     }
